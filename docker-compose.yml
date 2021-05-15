@@ -1,0 +1,11 @@
+version: '3'
+services:
+  cassandra:
+    image: cassandra:latest
+    ports:
+      - "9042:9042"
+    volumes:
+      - type: bind
+        source: ./schema.cql
+        target: /schema.cql
+      - ./init_schema.sh:/init_schema.sh
